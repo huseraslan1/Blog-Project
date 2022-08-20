@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BlogProject_5175.Models.Entities.Concrete.AppUser>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Kullanıcı Listesi</h3>
+    </div>
+
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>İsim</th>
+                    <th>Soyisim</th>
+                    <th>Kullanıcı Adı</th>
+                    <th>Fotoğraf</th>
+                    <th>Oluşturulma Tarihi</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        <td>
+                            <img src="@item.Image" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreateDate)
+                        </td>
+
+                        <td>
+                            <a asp-action="UserDetail" asp-route-id="@item.ID" class="btn btn-primary">Profil</a> 
+                            <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-danger">Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

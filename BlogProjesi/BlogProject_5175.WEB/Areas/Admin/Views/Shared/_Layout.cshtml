@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BlogProject_5175.WEB</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback">
+    <!-- Font Awesome Icons -->
+    <link href="~/temp/plugins/fontawesome-free/all.min.css" rel="stylesheet" />
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link href="~/temp/dist/adminlte.min.css" rel="stylesheet" />
+
+</head>
+<body class="sidebar-mini" style="height: auto;">
+    <div class="wrapper">
+        <!-- Navbar -->
+        @if (IsSectionDefined("Hosgeldin"))
+        {
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+                <!-- Left navbar links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item d-none d-sm-inline-block">
+                        @RenderSection("Hosgeldin", required: false)
+                    </li>
+                </ul>
+            </nav>
+        }
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4" style="position:fixed">
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                @if (IsSectionDefined("UserInfo"))
+                {
+                    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                        @RenderSection("UserInfo", required: false)
+                    </div>
+                }
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                        with font-awesome or any other icon font library -->
+                        <li class="nav-item menu-open">
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/Admin/AppUser/Index" class="nav-link">
+                                <i class="fa fa-fw fa-search"></i>
+                                <p>
+                                    ANA SAYFA
+                                </p>
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-fw fa-search"></i>
+                                <p>
+                                    MAKALELER
+
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a asp-action="Create" asp-controller="Article" class="nav-link">
+                                        <p>Oluştur</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-action="List" asp-controller="Article" class="nav-link">
+                                        <p>Liste</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-action="UnconfirmedArticle" asp-controller="Article" class="nav-link">
+                                        <p>Onaylanmamış Makaleler</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-fw fa-search"></i>
+                                <p>
+                                    KATEGORİLER
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview" style="display: none;">
+                                <li class="nav-item">
+                                    <a asp-action="Create" asp-controller="Category" class="nav-link">
+                                        <p>Oluştur</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-action="List" asp-controller="Category" class="nav-link">
+                                        <p>Liste</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-action="UnconfirmedCategory" asp-controller="Category" class="nav-link">
+                                        <p>Onaylama Bekleyen</p>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-fw fa-search"></i>
+                                <p>
+                                    KULLANICI LİSTESİ
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview" style="display: none;">
+                                <li class="nav-item">
+                                    <a asp-action="List" asp-controller="AppUser" class="nav-link">
+                                        <p>Kullanıcılar</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-action="UnconfirmedUser" asp-controller="AppUser" class="nav-link">
+                                        <p>Onay Bekleyen Kullanıcılar</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa fa-fw fa-search"></i>
+                                <p>
+                                    PROFİL
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview" style="display: none;">
+                                <li class="nav-item">
+                                    <a asp-action="UserDetail" asp-controller="AppUser" asp-route-id="0" class="nav-link">
+                                        <p>Profilim</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a asp-action="UserSettings" asp-controller="AppUser" class="nav-link">
+                                        <p>Profili Düzenle</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Admin/AppUser/Hakkimizda" class="nav-link">
+                                <i class="fa fa-fw fa-search"></i>
+                                <p>
+                                    HAKKIMIZDA
+                                </p>
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a href="/Member/AppUser/LogOut" class="nav-link">
+                                <i class="fa fa-fw fa-search"></i>
+                                <p>
+                                    ÇIKIŞ YAP
+
+                                </p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="min-height: 2128.12px;">
+            <!-- Content Header (Page header) -->
+            <!-- /.content-header -->
+            <!-- Main content -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        @RenderBody()
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Control Sidebar -->
+        <!-- /.control-sidebar -->
+        <!-- Main Footer -->
+        <footer class="main-footer">
+
+            <strong>Copyright © 2021-2022 <a href="https://akademi.bilgeadam.com">BİLGEADAM</a>.</strong>
+            All rights reserved.
+            <div class="float-right d-none d-sm-inline-block">
+                <div class="container">
+                    &copy; @DateTime.Now.Year - MAKALE SİTESİ - <a asp-area="Admin" asp-controller="AppUser" asp-action="Hakkimizda">HAKKIMIZDA</a>
+                </div>
+            </div>
+        </footer>
+        <div id="sidebar-overlay"></div>
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="~/temp/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/temp/plugins/bootstrap/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE -->
+    <script src="~/temp/dist/adminlte.js"></script>
+    <!-- OPTIONAL SCRIPTS -->
+    @*<script src="plugins/chart.js/Chart.min.js"></script>*@
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/temp/dist/demo.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="~/temp/dist/dashboard3.js"></script>
+</body>
+</html>

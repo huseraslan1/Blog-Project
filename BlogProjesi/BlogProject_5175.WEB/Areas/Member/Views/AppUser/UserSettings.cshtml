@@ -1,0 +1,73 @@
+﻿@model UpdateUserDTO
+
+<head>
+    <link href="~/css/toastr.css" rel="stylesheet" />
+</head>
+<div class="card card-primary col-md-8">
+    <div class="card-header">
+        <h3 class="card-title">PROFİL DÜZENLEME PANELİ</h3>
+    </div>
+    <div class="row">
+        <div class="card-body">
+            <form asp-action="UserSettings" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label">Ad</label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label">Soyad</label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Mail" class="control-label"></label>
+                    <input asp-for="Mail" value="@Model.Mail" class="form-control" />
+                    <span asp-validation-for="@Model.Mail" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserName" class="control-label">Kullanıcı Adı</label>
+                    <input asp-for="UserName" class="form-control" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label">Şifre</label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <input type="hidden" name="OldPassword" value="@Model.Password" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ImagePath">Fotoğraf</label>
+                    <input asp-for="ImagePath" value="@Model.Image" type="file" class="form-control">
+                    <img src=@Model.Image />   <!-- kişi makalenin eski fotosunu da görsün  -->
+                    <input type="hidden" name="Image" value="@Model.Image" />
+                    <span asp-validation-for="ImagePath" class="text-danger"></span>
+                </div>
+                <input type="hidden" asp-for="ID" />
+
+                <div class="form-group">
+                    <input type="submit" value="GÜNCELLE" class="btn btn-primary" />
+                </div>
+                <div class="form-group" style="position:absolute; bottom: 20px; right: 10px; text-align:right">
+                    <input type="submit" value="Hesabı Sil" asp-area="Member" asp-action="DeleteUser" asp-controller="AppUser" class="btn btn-danger" />
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/toastr.js"></script>
+@if (TempData["sonuc"] != null)
+{
+    <script type="text/javascript">
+        toastr.info("Şifreniz, Eski 3 Şifrenizle Aynı Olamaz.", "Mesaj")
+    </script>
+}
+
+

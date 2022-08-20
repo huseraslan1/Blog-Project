@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "Hakkimizda";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10" style="text-align:center">
+            <h1>Hakkımızda</h1> <br />
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper auctor sem, quis condimentum ligula auctor eu. Sed eu tortor diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget consequat elit. Proin venenatis convallis est. Ut condimentum sed elit at viverra. Vivamus ut leo lacus. Maecenas posuere arcu ut pellentesque fringilla. Fusce lacinia eros ante, vitae luctus dui aliquam et. Proin a dolor ac neque feugiat gravida. Morbi eleifend leo ac ex maximus, a gravida lectus ornare. Cras aliquam odio eu metus euismod elementum. Suspendisse maximus auctor diam, a bibendum turpis eleifend at. Duis imperdiet dui vitae eros tempor lacinia. Ut molestie lobortis orci.
+
+                Morbi eu lobortis libero. Donec imperdiet ex sollicitudin, dignissim nulla quis, lobortis est. Maecenas sed diam auctor, mollis turpis quis, scelerisque ipsum. Etiam sed leo eu ipsum luctus malesuada. Pellentesque quam nisl, iaculis a erat ut, tincidunt consequat risus. Fusce eleifend tincidunt odio, et sollicitudin massa lobortis nec. Praesent tristique nibh sit amet pulvinar tincidunt. Duis posuere et neque molestie efficitur.
+
+                Aliquam et dapibus neque. Praesent convallis volutpat pulvinar. Ut condimentum sapien sit amet nulla accumsan pellentesque. Praesent efficitur non augue vitae lobortis. Proin id leo sed nisl tempus aliquet. Nunc commodo enim quis egestas mollis. Pellentesque ac convallis nibh. Nunc blandit vel mi nec cursus. Donec non condimentum lorem. Vivamus eget tellus eget odio convallis efficitur. Mauris id nulla purus. Praesent ac laoreet elit, et ornare odio.
+
+                Maecenas quis dui odio. Nullam ornare, lorem eget fermentum tempus, justo ante gravida purus, ac luctus elit massa vitae risus. Nullam risus mauris, efficitur vitae ligula ut, euismod lacinia elit. Morbi egestas sapien vel neque sodales, ut congue leo vehicula. Cras pellentesque luctus ultrices. Phasellus ut fringilla nisi. Nam sed dictum nunc, eget posuere sapien. Cras congue vehicula mi. Donec mattis tortor sapien, pretium tempor ligula mattis vitae. Donec vel leo augue. Vestibulum vulputate, enim vel feugiat pulvinar, nisl ex consectetur lorem, quis placerat erat ipsum et ligula. Morbi dui libero, consequat a enim eu, varius euismod velit. Duis dignissim aliquam dui, a pellentesque quam vulputate at. Sed gravida tempus elit, sed luctus ante mattis ac.
+
+                Nullam hendrerit vehicula posuere. Nulla hendrerit orci in diam consectetur, at faucibus metus dapibus. Vivamus pretium tortor non sapien viverra dapibus. Vivamus ut pellentesque odio. Cras id faucibus felis. Nam molestie mauris sit amet dui pharetra dignissim. Cras posuere neque ante, sit amet gravida est aliquam nec. Cras imperdiet massa et facilisis eleifend. Aliquam posuere facilisis massa. Praesent molestie risus eget lorem semper, at vulputate elit luctus. Curabitur nec eros arcu. Aenean eu nulla diam. Suspendisse vulputate metus vel ultricies tristique.
+
+                Sed sit amet est ultrices, semper ipsum et, volutpat metus. Nulla facilisi. Donec feugiat ultrices purus in pharetra. Etiam maximus velit eu lacinia sodales. Nam faucibus sapien ante, id lobortis nulla fermentum sed. Duis mattis dui quis libero dignissim, quis rhoncus felis faucibus. Donec et scelerisque nibh, sed auctor ante. Phasellus orci nibh, feugiat non ultrices eget, posuere a dolor. Maecenas gravida eu ipsum eget aliquam. Curabitur tortor ligula, cursus vel gravida vitae, pulvinar nec metus. Proin nec dui facilisis, tempus arcu non, rhoncus mauris. Quisque pharetra, turpis id consequat luctus, sapien lorem egestas dui, eu molestie turpis elit eleifend metus. Quisque tincidunt.
+
+            </p>
+            <br />
+            <img  src="~/images/3107170_810x458.jpg"/>
+            <br /> <br />
+            <h2>Görüşlerinizi Bildirin</h2>
+            <form asp-action="Update" method="post" enctype="multipart/form-data">
+                <div class="card-body">
+                    <div class="" asp-validation-summary="All">
+
+                    </div>
+                    <div class="form-group">
+                        <label>Ad - Soyad</label>
+                        <input type="text" class="form-control">
+                        <br />
+                        <label>E Mail</label>
+                        <input type="text" class="form-control">
+                        <br />
+                        <label>Mesaj</label>
+                        <textarea type="text" class="form-control"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">GÖNDER</button>
+                    </div>
+                </div>
+            </form>
+            <br />
+            <h2>Adresimiz</h2>
+            
+            <p>İstanbul / Güngören / İnönü Caddesi / No 58</p>
+            <br />
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d188.1586210914433!2d28.871855937953836!3d41.0134855897235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb15708c974455778!2zNDHCsDAwJzQ4LjciTiAyOMKwNTInMTguNSJF!5e0!3m2!1str!2str!4v1658865660074!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div>
+

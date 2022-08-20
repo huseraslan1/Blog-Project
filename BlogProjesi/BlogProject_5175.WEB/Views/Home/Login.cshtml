@@ -1,0 +1,32 @@
+﻿
+
+@model LoginDTO
+
+<head>
+
+    <link href="~/css/toastr.css" rel="stylesheet" />
+</head>
+<h4>KULLANICI GİRİŞ PANELİ</h4>
+<br />
+<form asp-action="Login" asp-controller="Home">
+    <div class="form-group">
+        <label>Mail</label>
+        <input asp-for="Mail" type="email" class="form-control" />
+        <span asp-validation-for="Mail" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Şifre</label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success"> GİRİŞ YAP </button>
+</form>
+<p class="text-right"><a asp-action="Create" asp-controller="User">Hesap Oluştur</a></p>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/toastr.js"></script>
+@if (TempData["sonuc"] != null)
+{
+    <script type="text/javascript">
+        toastr.info("Hesabınız Henüz Admin Tarafından Onaylanmadı.","Mesaj")
+    </script>
+}

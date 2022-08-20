@@ -1,0 +1,88 @@
+﻿
+@model List<Category>
+
+@if (Model == null || Model.Count ==0)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 text-center">
+                <h1>Henüz Onaylama Bekleyen Bir Kategori Bulunmamakta...</h1>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Onay Bekleyen Kategoriler</h3>           
+        </div>
+        <!-- /.card-header -->
+        <form asp-action="UnconfirmedCategory">
+            <div class="card-body p-0">
+                <table class="table">
+                    <thead>
+                        <tr>
+
+                            <th>Kategori Adı</th>
+                            <th>Kategori Açıklaması</th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+
+                        <tr>
+
+                            <td>@item.Name</td>
+                            <td>
+                                <!-- Modalı tetikleyen buton -->
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter_@item.ID">
+                                    Açıklama Oku
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModalCenter_@item.ID" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">@item.Name</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                @Html.Raw(item.Description)
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+
+                                <button type="submit" value="confirm" asp-route-id="@item.ID" name="button" class="btn btn-success">Onayla</button>
+                            </td>
+                            <td>
+                                <a asp-action="Update" asp-route-id="@item.ID" class="btn btn-primary">Güncelle</a>
+                            </td>
+                            <td>
+                                <button type="submit" asp-route-id="@item.ID" value="decline" name="button" class="btn btn-danger">Reddet</button>
+
+                            </td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+        </form>
+        <!-- /.card-body -->
+    </div>
+}

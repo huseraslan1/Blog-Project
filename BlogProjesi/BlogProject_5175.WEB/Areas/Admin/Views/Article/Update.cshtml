@@ -1,0 +1,68 @@
+﻿
+@model ArticleUpdateDTO
+
+<div class="card card-primary col-md-8">
+    <div class="card-header">
+        <h3 class="card-title">MAKALE GÜNCELLEME PANELİ</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form asp-action="Update" method="post" enctype="multipart/form-data">
+        <div class="card-body">
+            <div class="" asp-validation-summary="All">
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Title">Başlık</label>
+                <input asp-for="Title" type="text" class="form-control">
+                <input type="hidden" name="PreviousTitle" value="@Model.Title" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Content">İçerik</label>
+                <textarea asp-for="Content" class="form-control" rows="17" cols="50" maxlength="20000"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagePath">Fotoğraf</label>
+                <input asp-for="ImagePath" type="file" class="form-control">
+                <img src="@Model.Image" />   
+                <input type="hidden" name="Image" value="@Model.Image" />
+                <input type="hidden" name="ReadCount" value="@Model.ReadCount" />
+            </div>
+            <input asp-for="AppUserID" type="hidden" />
+            <input asp-for="ID" type="hidden" />
+
+            <div class="form-group">
+                <label asp-for="Categories">Kategoriler</label>
+                <br />
+                @foreach (var item in ViewBag.kategoriler)
+                {
+                    bool bulundu = true;
+                    foreach (var item2 in Model.ArticleCategories)
+                    {
+                        if (item2.CategoryID == item.ID)
+                        {
+                            <input value="@item.ID" type="checkbox" name="SecilenKategori[]" id="Categories" checked="checked">
+                            <label asp-for="Categories" name="SecilenKategori[]" id="Categories">@item.Name &nbsp;</label>
+                            bulundu = false;
+                            break;
+                        }
+                    }
+                    if (bulundu != false)
+                    {
+                        <input value="@item.ID" type="checkbox" name="SecilenKategori[]" id="Categories">
+                        <label asp-for="Categories" name="SecilenKategori[]" id="Categories">@item.Name &nbsp;</label>
+                    }
+
+                }
+
+
+            </div>
+
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">GÜNCELLE</button>
+        </div>
+    </form>
+</div>

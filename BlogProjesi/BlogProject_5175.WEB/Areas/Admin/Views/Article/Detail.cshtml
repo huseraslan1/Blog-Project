@@ -1,0 +1,122 @@
+﻿@model BlogProject_5175.Models.Entities.Concrete.Article
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 text-center">
+            <br />
+            <a asp-controller="AppUser" asp-action="UserDetail" asp-route-id="@Model.AppUserID" style="color:inherit">
+                <p style="text-align:center"><strong>Yazar: </strong><img src="@Model.AppUser.Image" width="40" height="40" />  @Model.AppUser.FirstName @Model.AppUser.LastName</p>
+
+            </a>
+            <p>Oluşturulma Tarihi : @Model.CreateDate.ToShortDateString()</p>
+            @if (Model.ReadTime == 0)
+            {
+                <p>Tahmini Okuma Süresi: 1 dk</p>
+            }
+            else
+            {
+                <p>Tahmini Okuma Süresi: @Model.ReadTime dk</p>
+            }
+
+            <p>Okunma Sayısı : @Model.ReadCount</p>
+            <div class="col-md-10">
+                <div class="row">
+                    @if (Model.ArticleCategories.Count != 0)
+                    {
+                        <strong>Kategoriler : </strong>
+                        @foreach (var item in Model.ArticleCategories)
+                        {
+                            if (item.Category.Statu != BlogProject_5175.Models.Enums.Statu.Passive)
+                            {
+                                <div class="position-relative p-2">
+                                    <h3><a class="btn btn-outline-secondary" asp-action="Filter" asp-controller="Article" asp-route-id="@item.CategoryID">@item.Category.Name</a></h3>
+                                </div>
+                            }
+                        }
+                    }
+                </div>
+            </div>
+            <h1>@Model.Title</h1>
+            <br />
+            <img src="@Model.Image" width="900" height="300" />
+
+            <br /> <br /> <br />
+
+            <p style="word-wrap:break-word">@Model.Content</p>
+
+            <form method="post" action="/Admin/Article/Like">
+
+                <div class="form-group text-left">
+                    <input type="hidden" name="ArticleID" value="@Model.ID" />
+                    <input type="hidden" name="AppUserID" value="@ViewBag.user" />
+                    @{bool begenildi = false;}
+                    @foreach (var item in Model.Likes)
+                    {
+                        if (item.AppUserID == ViewBag.user && item.ArticleID == Model.ID)
+                        {
+                            <button type="submit" class="btn-success">Beğenme</button>
+                            begenildi = true;
+                            break;
+                        }
+                    }
+                    @if (begenildi == false)
+                    {
+                        <button type="submit" class="btn-dark">Beğen</button>
+                    }
+                </div>
+            </form>
+            <p class="text-left">Beğenilme Sayısı: @Model.Likes.Count</p>
+            <br />
+
+            <form method="post" action="/Admin/Article/Comments">
+                <div class="modal-body">
+                    <h3>Yorum Ekle</h3>
+                    <textarea class="form-control" name="Text"></textarea>
+                    <input type="hidden" name="ArticleID" value="@Model.ID" />
+                    <input type="hidden" name="AppUserID" value="@Model.AppUserID" />
+                    <input type="hidden" name="CreateDate" value="@DateTime.Now" />
+                </div>
+                <div class="modal-footer">
+                    <button type="submit">Gönder</button>
+                </div>
+            </form>
+            @foreach (var item in Model.Comments.OrderByDescending(a => a.CreateDate))
+            {
+                <div class="container mt-3">
+                    <div class="d-flex justify-content-center row">
+                        <div class="col-md-10">
+                            <div class="d-flex flex-column comment-section">
+                                <div class="bg-white p-2">
+
+                                    <div class="d-flex flex-row user-info">
+                                        <a asp-area="Admin" asp-controller="Article" asp-action="DeleteComment" asp-route-id="@item.ID">
+                                            <p style="right:5px; bottom:0; position:absolute; color:red">Yorumu Sil</p>
+                                        </a>
+                                        <img class="rounded-circle" src="@Model.AppUser.Image" width="40">
+                                        <div class="d-flex flex-column justify-content-start ml-2">
+                                            <span class="d-block font-weight-bold name">
+
+                                                <a asp-area="Admin" asp-controller="AppUser" asp-action="UserDetail" asp-route-id="@item.AppUserID">@item.AppUser.UserName</a>
+                                            </span>
+                                            <span class="date text-black-50">@item.CreateDate.ToShortDateString()</span>
+                                        </div>
+                                    </div>
+                                    <div class="mt-2">
+                                        <p class="comment-text">@item.Text</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,111 @@
+﻿@model BlogProject_5175.Models.Entities.Concrete.AppUser
+
+@{
+    ViewData["Title"] = "UserDetail";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8" style="text-align:center">
+            <img src="@Model.Image" width="700" height="300" />
+            <br /> <br />
+            <p>Yazar Ad-Soyad: @Model.FullName</p>
+            <p>Kullanıcı Adı: @Model.UserName</p>
+            <p>Kaydolma Tarihi: @Model.CreateDate.ToShortDateString()</p>
+
+        </div>
+        <div class="col-md-4">
+            @await Component.InvokeAsync("UserFollowCategory", new { id = Model.ID })
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            @if (Model.Articles.Count != 0) // Kullanıcının mevcut bir makalesi varsa
+            {
+                <h5>@Model.FullName Adlı Kullanıcının Yazdığı Son 5 Makale. </h5>
+                @foreach (var item in Model.Articles.OrderByDescending(a => a.CreateDate).Take(5))
+                {
+                    <div class="col-12  d-flex align-items-stretch flex-column mb-4">
+                        <div class="card bg-light d-flex flex-fill">
+
+                            <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="lead"><b>@item.Title</b></h2>
+                                        <p class="text-muted text-sm">
+                                            @if (item.Content.Length >= 30)
+                                            {
+                                                @item.Content.Substring(0, 30)
+                                            }
+                                            else
+                                            {@item.Content}
+                                        </p>
+                                        <ul class="ml-4 mb-0 fa-ul text-muted">
+                                            <li><a asp-controller="Article" asp-action="Detail" asp-route-id="@item.ID">devamını okumak için tıklayınız...</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                        <img src="@item.Image" alt="user-avatar" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="text-right">
+                                    <div class="text-left">
+                                        <p style="position:absolute"> Oluşma Tarihi: @item.CreateDate.ToShortDateString()</p>
+                                    </div>
+                                    Yazar:
+                                    <a asp-action="UserDetail" asp-controller="AppUser" asp-route-id="@item.AppUserID" class="btn btn-sm btn-primary">
+                                         @Model.FullName
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            @if (Model.Comments.Count != 0) // Kullanıcının mevcut bir yorumu varsa
+            {
+                <h5>@Model.FullName Adlı Kullanıcının Yazdığı Son 5 Yorum. </h5>
+                @foreach (var item in Model.Comments.OrderByDescending(a => a.CreateDate).Take(5))
+                {
+                    <div class="container mt-3">
+                        <div class="d-flex justify-content-center row">
+                            <div class="col-md-10">
+                                <div class="d-flex flex-column comment-section">
+                                    <div class="bg-white p-2">
+                                        <div class="d-flex flex-row user-info">
+                                            <img class="rounded-circle" src="@Model.Image" width="40">
+                                            <div class="d-flex flex-column justify-content-start ml-2">
+                                                <span class="d-block font-weight-bold name">
+                                                    <a asp-area="Member" asp-controller="AppUser" asp-action="UserDetail" asp-route-id="@item.AppUserID">@item.AppUser.UserName</a>
+                                                </span>
+                                                <span class="date text-black-50">@item.CreateDate.ToShortDateString()</span>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <p>
+                                                <a asp-controller="Article" asp-action="Detail" asp-route-id="@item.ArticleID">@item.Article.Title</a>
+                                                Makalesi İçin Şu Yorumda Bulundu
+                                            </p>
+                                        </div>
+                                        <div class="mt-2">
+                                            <p class="comment-text">@item.Text</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    @* comments kaldı *@
+</div>

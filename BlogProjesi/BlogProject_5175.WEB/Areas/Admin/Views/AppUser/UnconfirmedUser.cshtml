@@ -1,0 +1,63 @@
+﻿@model List<AppUser>
+
+@if (Model == null || Model.Count == 0)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10" style="text-align:center">
+                <h1>Henüz Onaylama Bekleyen Bir Kullanıcı Bulunmamakta...</h1>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Onay Bekleyen Kullanıcılar</h3>
+        </div>
+        <!-- /.card-header -->
+        <form asp-action="UnconfirmedCategory">
+            <div class="card-body p-0">
+                <table class="table">
+                    <thead>
+                        <tr>
+
+                            <th>Ad Soyad</th>
+                            <th>Kullanıcı Adı</th>
+                            <th>Fotoğraf</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+
+                                <td>@item.FullName</td>
+                                <td>@item.UserName</td>
+                                <td>
+                                    <img src="@item.Image" />
+                                </td>
+
+                                <td>
+
+                                    <button type="submit" value="confirm" asp-route-id="@item.ID" name="button" class="btn btn-primary">Onayla</button>
+                                </td>
+                                <td>
+                                    <button type="submit" asp-route-id="@item.ID" value="decline" name="button" class="btn btn-danger">Reddet</button>
+
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+        </form>
+        <!-- /.card-body -->
+    </div>
+}

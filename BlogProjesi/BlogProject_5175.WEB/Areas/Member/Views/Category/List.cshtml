@@ -1,0 +1,71 @@
+﻿@model List<GetCategoryDTO>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Kategoriler</h3>
+                </div>
+                <div class="card-body">
+
+
+                    <div class="row">
+
+                        @foreach (var item in Model)
+                        {
+                            <a href="/Member/Article/Filter/@item.ID">
+                                <div class="col-sm-4">
+                                    <div class="position-relative p-3 bg-gray" style="height: 180px">
+                                        <h3>@item.Name</h3>
+
+                                        <hr />
+                                        @if (item.Description.Length >= 110)
+                                        {
+                                            @item.Description.Substring(0, 110)
+                                        }
+                                        else
+                                        {@item.Description}
+
+                                        <br />
+                                        <div style="position:absolute; bottom: 10px; right: 10px; text-align:right">
+                                            @{bool bulundu = true;} <!--Eğer kullanıcının takip ettiği kategori bulunursa false alınıyor ve döngünün dışında kontrol ediliyor-->
+                                            @foreach (var takipListesi in ViewBag.takipListesi)
+                                            {<!--Kullanıcının takip ettiği kategorilerin listesi alındı-->
+
+                                                @if (takipListesi.ID == item.ID)
+                                                {
+                                                    <a asp-action="Follow" asp-route-id="@item.ID" class="btn btn-danger">Takibi Bırak</a>
+                                                    bulundu = false;
+                                                    break; //bulduktan sonra döngünün devam etmesine gerek kalmıyor.
+                                                }
+
+                                            }
+                                            @if (bulundu != false) // Eğer kullanıcı takip etmiyorsa.
+                                            {
+                                                <a asp-action="Follow" asp-route-id="@item.ID" class="btn btn-success">Takip Et</a>
+                                            }
+                                        </div>
+                                    </div>
+                                    <br />
+                                </div>
+                            </a>
+                        }
+
+                    </div>
+
+
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <div class="text-center">
+                <h4>Aradığın Kategori Yoksa...</h4>
+                <a class="btn btn-primary" asp-action="Create">Kategori Oluştur</a>
+            </div>
+            <a class="btn btn-primary" asp-action="Index" asp-controller="AppUser">Ana Sayfaya Dön</a>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</div>

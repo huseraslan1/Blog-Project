@@ -1,0 +1,44 @@
+﻿
+@model CreateUserDTO
+
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">KAYIT PANELİ</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form  asp-action="Create" method="post" enctype="multipart/form-data">
+        <div class="card-body">
+            <div class="form-group">
+                <label asp-for="FirstName">Ad</label>
+                <input asp-for="FirstName" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName">Soyad</label>
+                <input asp-for="LastName" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName">Kullanıcı Adı</label>
+                <input asp-for="UserName" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="Mail">Mail</label>
+                <input asp-for="Mail" type="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">Şifre</label>
+                <input asp-for="Password" type="password" class="form-control">
+            </div>
+            <div class="form-group">
+                <label asp-for="ImagePath">Fotoğraf</label>
+                <input asp-for="ImagePath" type="file" class="form-control">
+            </div>
+
+        </div>
+        <!-- /.card-body -->
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+        </div>
+    </form>
+</div>

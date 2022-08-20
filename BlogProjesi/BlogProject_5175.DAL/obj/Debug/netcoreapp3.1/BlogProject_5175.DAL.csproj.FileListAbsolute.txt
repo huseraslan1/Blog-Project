@@ -1,0 +1,25 @@
+C:\Users\ikbal.cinek\Desktop\5175\BlogProject_5175\BlogProject_5175.DAL\bin\Debug\netcoreapp3.1\BlogProject_5175.DAL.deps.json
+C:\Users\ikbal.cinek\Desktop\5175\BlogProject_5175\BlogProject_5175.DAL\bin\Debug\netcoreapp3.1\BlogProject_5175.DAL.dll
+C:\Users\ikbal.cinek\Desktop\5175\BlogProject_5175\BlogProject_5175.DAL\bin\Debug\netcoreapp3.1\BlogProject_5175.DAL.pdb
+C:\Users\ikbal.cinek\Desktop\5175\BlogProject_5175\BlogProject_5175.DAL\bin\Debug\netcoreapp3.1\BlogProject_5175.Models.dll
+C:\Users\ikbal.cinek\Desktop\5175\BlogProject_5175\BlogProject_5175.DAL\bin\Debug\netcoreapp3.1\BlogProject_5175.Models.pdb
+C:\Users\ikbal.cinek\Desktop\5175\BlogProject_5175\BlogProject_5175.DAL\obj\Debug\netcoreapp3.1\BlogProject_5175.DAL.csproj.AssemblyReference.cache
+C:\Users\ikbal.cinek\Desktop\5175\BlogProject_5175\BlogProject_5175.DAL\obj\Debug\netcoreapp3.1\BlogProject_5175.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ikbal.cinek\Desktop\5175\BlogProject_5175\BlogProject_5175.DAL\obj\Debug\netcoreapp3.1\BlogProject_5175.DAL.AssemblyInfoInputs.cache
+C:\Users\ikbal.cinek\Desktop\5175\BlogProject_5175\BlogProject_5175.DAL\obj\Debug\netcoreapp3.1\BlogProject_5175.DAL.AssemblyInfo.cs
+C:\Users\ikbal.cinek\Desktop\5175\BlogProject_5175\BlogProject_5175.DAL\obj\Debug\netcoreapp3.1\BlogProject_5175.DAL.csproj.CoreCompileInputs.cache
+C:\Users\ikbal.cinek\Desktop\5175\BlogProject_5175\BlogProject_5175.DAL\obj\Debug\netcoreapp3.1\BlogProject_5175.DAL.csproj.CopyComplete
+C:\Users\ikbal.cinek\Desktop\5175\BlogProject_5175\BlogProject_5175.DAL\obj\Debug\netcoreapp3.1\BlogProject_5175.DAL.dll
+C:\Users\ikbal.cinek\Desktop\5175\BlogProject_5175\BlogProject_5175.DAL\obj\Debug\netcoreapp3.1\BlogProject_5175.DAL.pdb
+C:\Users\msi\Desktop\Yeni klasör (3)\BlogProject_5175.DAL\bin\Debug\netcoreapp3.1\BlogProject_5175.DAL.deps.json
+C:\Users\msi\Desktop\Yeni klasör (3)\BlogProject_5175.DAL\bin\Debug\netcoreapp3.1\BlogProject_5175.DAL.dll
+C:\Users\msi\Desktop\Yeni klasör (3)\BlogProject_5175.DAL\bin\Debug\netcoreapp3.1\BlogProject_5175.DAL.pdb
+C:\Users\msi\Desktop\Yeni klasör (3)\BlogProject_5175.DAL\bin\Debug\netcoreapp3.1\BlogProject_5175.Models.dll
+C:\Users\msi\Desktop\Yeni klasör (3)\BlogProject_5175.DAL\bin\Debug\netcoreapp3.1\BlogProject_5175.Models.pdb
+C:\Users\msi\Desktop\Yeni klasör (3)\BlogProject_5175.DAL\obj\Debug\netcoreapp3.1\BlogProject_5175.DAL.csproj.AssemblyReference.cache
+C:\Users\msi\Desktop\Yeni klasör (3)\BlogProject_5175.DAL\obj\Debug\netcoreapp3.1\BlogProject_5175.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\msi\Desktop\Yeni klasör (3)\BlogProject_5175.DAL\obj\Debug\netcoreapp3.1\BlogProject_5175.DAL.AssemblyInfoInputs.cache
+C:\Users\msi\Desktop\Yeni klasör (3)\BlogProject_5175.DAL\obj\Debug\netcoreapp3.1\BlogProject_5175.DAL.AssemblyInfo.cs
+C:\Users\msi\Desktop\Yeni klasör (3)\BlogProject_5175.DAL\obj\Debug\netcoreapp3.1\BlogProject_5175.DAL.csproj.CoreCompileInputs.cache
+C:\Users\msi\Desktop\Yeni klasör (3)\BlogProject_5175.DAL\obj\Debug\netcoreapp3.1\BlogProject_5175.DAL.dll
+C:\Users\msi\Desktop\Yeni klasör (3)\BlogProject_5175.DAL\obj\Debug\netcoreapp3.1\BlogProject_5175.DAL.pdb
